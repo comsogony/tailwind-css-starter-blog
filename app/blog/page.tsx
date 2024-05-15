@@ -1,3 +1,4 @@
+// app/blog/page.tsx
 import ListLayout from '@/layouts/ListLayoutWithTags'
 import { allCoreContent, sortPosts } from 'pliny/utils/contentlayer'
 import { allBlogs } from 'contentlayer/generated'
@@ -20,11 +21,14 @@ export default function BlogPage() {
   }
 
   return (
-    <ListLayout
-      posts={posts}
-      initialDisplayPosts={initialDisplayPosts}
-      pagination={pagination}
-      title="All Posts"
-    />
+    <div className="grid grid-cols-3 gap-4">
+      {initialDisplayPosts.map((post) => (
+        <div className="col-span-1 bg-white p-4 shadow rounded">
+          <h2>{post.title}</h2>
+          <p>{post.summary}</p>
+        </div>
+      ))}
+    </div>
   )
 }
+

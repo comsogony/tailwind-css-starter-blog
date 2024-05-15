@@ -1,51 +1,44 @@
+/* css/tailwind.css */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-.task-list-item::before {
-  @apply hidden;
+/* Existing grid and text styles */
+.grid {
+  @apply grid-cols-3 gap-4;
+}npm run dev
+.col-span-1 {
+  @apply bg-white p-4 shadow rounded;
+}
+h2 {
+  @apply text-lg font-bold;
+}
+p {
+  @apply text-sm;
 }
 
-.task-list-item {
-  @apply list-none;
+/* Additional styles for full-page gradient background with animation */
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
 }
 
-.footnotes {
-  @apply mt-12 border-t border-gray-200 pt-8 dark:border-gray-700;
+body {
+  background: linear-gradient(270deg, #ffd1dc, #f4c4f3, #ffd1dc, #f4c4f3);
+  background-size: 800% 800%;
+  animation: GradientFlow 16s ease infinite;
 }
 
-.data-footnote-backref {
-  @apply no-underline;
-}
-
-.csl-entry {
-  @apply my-5;
-}
-
-/* https://stackoverflow.com/questions/61083813/how-to-avoid-internal-autofill-selected-style-to-be-applied */
-input:-webkit-autofill,
-input:-webkit-autofill:focus {
-  transition:
-    background-color 600000s 0s,
-    color 600000s 0s;
-}
-
-.katex-display {
-  overflow: auto hidden;
-}
-
-.content-header-link {
-  opacity: 0;
-  margin-left: -24px;
-  padding-right: 4px;
-}
-
-.content-header:hover .content-header-link,
-.content-header-link:hover {
-  opacity: 1;
-}
-
-.linkicon {
-  display: inline-block;
-  vertical-align: middle;
+@keyframes GradientFlow {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
 }
